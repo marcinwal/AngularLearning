@@ -1,28 +1,30 @@
-describe('',function(){
+describe('given i am using todo app',function(){
 
-var scope = {};
+  var scope = {};
 
 
 //injection access to angular controller in tests
-beforeEach(inject(function($controller){
-  //initializing controller with a test scope as $scope
-  $controller('TodoController',{$scope:scope});
-}));
+  beforeEach(function(){
+    module('todo');
+    inject(function($controller){
+      $controller('TodoController',{$scope:scope});
+    });
+  });
 
   it('should define a list of object',function(){
     expect(scope.list).toBeDefined();
   });
 
   it('should define a list of objects',function(){
-    expect(scope.list[0]).toBeEqual('test');
+    expect(scope.list[0]).toEqual('test');
   });
 
   it('should define a list of objects',function(){
-    expect(scope.list[1]).toBeEqual('execute');
+    expect(scope.list[1]).toEqual('execute');
   });
 
   it('should define a list of objects',function(){
-    expect(scope.list[2]).toBeEqual('refactor');
+    expect(scope.list[2]).toEqual('refactor');
   });  
 
 });
