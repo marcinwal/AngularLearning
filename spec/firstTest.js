@@ -25,6 +25,23 @@ describe('given i am using todo app',function(){
 
   it('should define a list of objects',function(){
     expect(scope.list[2]).toEqual('refactor');
-  });  
+  }); 
+
+  describe('when using a to-do list ',function(){
+
+    beforeEach(function(){
+      scope.add('repeat');
+    });
+
+    it('should add item to the last item in list',function(){
+      var lastIndexOfList = scope.list.length - 1;
+      expect(scope.list[lastIndexOfList]).toEqual('repeat');
+
+
+    });
+
+  }); 
 
 });
+
+  
